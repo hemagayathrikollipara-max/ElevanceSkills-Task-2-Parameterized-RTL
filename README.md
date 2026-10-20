@@ -2,59 +2,44 @@
 
 A parameterized Verilog HDL project for intelligent traffic signal coordination across multiple junctions, developed and verified using AMD Xilinx Vivado 2022.2.
 
-## Project Overview
+## 1. Project Overview
 
-The Adaptive Multi-Junction Traffic Controller (AMTGC) is designed to manage traffic signals at two four-way junctions. It integrates adaptive signal timing, pedestrian request arbitration, green-wave coordination, and emergency vehicle priority to improve traffic flow and maintain safe signal operation.
+The Adaptive Multi-Junction Traffic Controller (AMTGC) is designed to coordinate traffic signals across two four-way junctions. The system uses Finite State Machines (FSMs), parameterized timing logic, pedestrian request arbitration, green-wave coordination, and emergency vehicle priority to improve traffic flow while maintaining safe signal operation.
 
-## Key Features
+The project demonstrates digital design principles, sequential control logic, simulation-based verification, and modular RTL development using Verilog HDL.
 
-- **Multi-Junction Control:** Independent signal control for two traffic junctions.
-- **Parameterized RTL:** Reusable FSM-based junction controllers and generic timers.
-- **Adaptive Green Timing:** Green duration adjusts according to traffic density within defined limits.
-- **Pedestrian Arbitration:** Shared arbitration logic manages pedestrian requests.
-- **Green-Wave Coordination:** Coordinates signal timing between junctions.
-- **Emergency Override:** Forces both junctions into an all-red safety state during emergency activation.
+## 2. Key Features
 
-## Repository Structure
+- **Multi-Junction Control:** Controls traffic signals at two independent junctions.
+- **Parameterized RTL:** Uses reusable FSM-based junction controllers and timing modules.
+- **Adaptive Green Timing:** Adjusts green signal duration according to traffic density within defined limits.
+- **Pedestrian Request Arbitration:** Coordinates pedestrian crossing requests between junctions.
+- **Green-Wave Coordination:** Supports coordinated signal timing between junctions.
+- **Emergency Override:** Activates an all-red safety condition during emergency operation.
+- **Reset Handling:** Supports reset behavior to return the controllers to their defined initial states.
+- **Simulation-Based Verification:** Uses dedicated testbenches to check functionality and controller behavior.
 
-- `rtl/` — Verilog RTL design modules.
-- `tb/` — Testbench files for functional verification.
-- `sim/` — Simulation waveforms and verification evidence.
-- `docs/` — Technical documentation, architecture diagrams, and reports.
+## 3. System Architecture
 
-## Development Tools
+The AMTGC design consists of modular RTL components responsible for traffic signal sequencing, timing control, pedestrian request handling, junction coordination, and emergency response.
 
-- AMD Xilinx Vivado 2022.2
-- Verilog HDL
-- Vivado Behavioral Simulation
+Each junction controller operates using a Finite State Machine (FSM). The controller transitions between defined traffic signal states according to timing conditions, control requests, and system-level coordination logic.
 
-## Verification and Testing
+Architecture diagrams and related design documentation are available in the `docs/` directory.
 
-The supplied Task 5 testbench report records 361 checks, zero detected errors, and a PASS result for the enabled checks. Verification scenarios cover reset behavior, adaptive timing, green-wave coordination, pedestrian arbitration, emergency override, and additional functional checks.
+## 4. Repository Structure
 
-For reproducible results, run the supplied testbench against the final RTL files and verify the simulation log and waveform outputs.
-
-## Running the Simulation
-
-1. Clone or download this repository.
-2. Open AMD Xilinx Vivado 2022.2.
-3. Create or open a Vivado project.
-4. Add the required design files from `rtl/`.
-5. Add the required testbench files from `tb/`.
-6. Set the intended testbench as the simulation top module.
-7. Select **Run Behavioral Simulation**.
-8. Run the simulation to completion and inspect the waveform and Tcl Console for results.
-
-## Documentation and Simulation Evidence
-
-Refer to `docs/` for design documentation and architecture diagrams. Refer to `sim/` for saved simulation waveforms and verification evidence.
-
-## Project Status
-
-The project includes parameterized RTL modules, simulation testbenches, technical documentation, and verification evidence. Final verification should be performed using the exact RTL and testbench versions committed to this repository.
-
----
-
-**Project:** Adaptive Multi-Junction Traffic Controller (AMTGC)  
-**Domain:** Digital Design and Verilog HDL  
-**Simulation Platform:** AMD Xilinx Vivado 2022.2
+```text
+amtgc/
+├── rtl/
+│   └── Verilog RTL design modules
+├── tb/
+│   └── Simulation testbenches
+├── docs/
+│   ├── Architecture diagrams
+│   ├── FSM diagrams
+│   ├── Technical reports
+│   └── Documentation
+├── sim/
+│   ├── Waveform screenshots
+│   ├── Verification
