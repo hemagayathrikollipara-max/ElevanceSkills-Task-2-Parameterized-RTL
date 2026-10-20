@@ -1,44 +1,60 @@
-# ElevanceSkills-Task-2-Parameterized-RTL
-Parameterized RTL design of an adaptive traffic controller using Verilog HDL, reusable FSM-based junction controllers, generic timers, pedestrian handling, and Vivado simulation.
-
 # Adaptive Multi-Junction Traffic Controller (AMTGC)
 
+A parameterized Verilog HDL project for intelligent traffic signal coordination across multiple junctions, developed and verified using AMD Xilinx Vivado 2022.2.
+
 ## Project Overview
-The Adaptive Multi-Junction Traffic Controller (AMTGC) is a Verilog-based digital system designed to coordinate traffic signals at two four-way junctions. It supports adaptive green timing, pedestrian request arbitration, green-wave coordination, and emergency override.
 
-## Features
-- Independent control of two traffic junctions.
-- Parameterized junction controller and reusable generic timer.
-- Traffic-density-based adaptive green duration with safety limits.
-- Shared pedestrian arbiter designed to provide fair access.
-- Green-wave coordination between Junction A and Junction B.
-- Emergency override to force both junctions to an all-red condition.
+The Adaptive Multi-Junction Traffic Controller (AMTGC) is designed to manage traffic signals at two four-way junctions. It integrates adaptive signal timing, pedestrian request arbitration, green-wave coordination, and emergency vehicle priority to improve traffic flow and maintain safe signal operation.
 
-## Project Structure
-- `rtl/` — RTL source modules.
-- `tb/` — Simulation testbenches.
+## Key Features
+
+- **Multi-Junction Control:** Independent signal control for two traffic junctions.
+- **Parameterized RTL:** Reusable FSM-based junction controllers and generic timers.
+- **Adaptive Green Timing:** Green duration adjusts according to traffic density within defined limits.
+- **Pedestrian Arbitration:** Shared arbitration logic manages pedestrian requests.
+- **Green-Wave Coordination:** Coordinates signal timing between junctions.
+- **Emergency Override:** Forces both junctions into an all-red safety state during emergency activation.
+
+## Repository Structure
+
+- `rtl/` — Verilog RTL design modules.
+- `tb/` — Testbench files for functional verification.
 - `sim/` — Simulation waveforms and verification evidence.
-- `docs/` — Technical documentation and diagrams.
+- `docs/` — Technical documentation, architecture diagrams, and reports.
 
-## Tools
+## Development Tools
+
 - AMD Xilinx Vivado 2022.2
 - Verilog HDL
-- Vivado behavioral simulation
+- Vivado Behavioral Simulation
 
-## Verification
-The Task 5 testbench reported 361 checks performed, zero detected errors, and PASS for all enabled checks. Re-run the supplied testbench using the final RTL files to reproduce the results.
+## Verification and Testing
+
+The supplied Task 5 testbench report records 361 checks, zero detected errors, and a PASS result for the enabled checks. Verification scenarios cover reset behavior, adaptive timing, green-wave coordination, pedestrian arbitration, emergency override, and additional functional checks.
+
+For reproducible results, run the supplied testbench against the final RTL files and verify the simulation log and waveform outputs.
 
 ## Running the Simulation
+
 1. Clone or download this repository.
-2. Open Vivado 2022.2 and create or open a project.
-3. Add the Verilog files from `rtl/` as Design Sources.
-4. Add the testbench files from `tb/` as Simulation Sources.
-5. Set the appropriate testbench as the simulation top.
-6. Run **Run Behavioral Simulation**.
-7. Run the simulation to completion and inspect the Tcl Console and waveform.
+2. Open AMD Xilinx Vivado 2022.2.
+3. Create or open a Vivado project.
+4. Add the required design files from `rtl/`.
+5. Add the required testbench files from `tb/`.
+6. Set the intended testbench as the simulation top module.
+7. Select **Run Behavioral Simulation**.
+8. Run the simulation to completion and inspect the waveform and Tcl Console for results.
 
-## Documentation and Evidence
-See `docs/` for architecture documentation and design diagrams, and `sim/` for saved simulation evidence.
+## Documentation and Simulation Evidence
 
-## Note
-Use the final RTL version associated with the passing verification testbench. The generic timer should remain unchanged from the verified version.
+Refer to `docs/` for design documentation and architecture diagrams. Refer to `sim/` for saved simulation waveforms and verification evidence.
+
+## Project Status
+
+The project includes parameterized RTL modules, simulation testbenches, technical documentation, and verification evidence. Final verification should be performed using the exact RTL and testbench versions committed to this repository.
+
+---
+
+**Project:** Adaptive Multi-Junction Traffic Controller (AMTGC)  
+**Domain:** Digital Design and Verilog HDL  
+**Simulation Platform:** AMD Xilinx Vivado 2022.2
